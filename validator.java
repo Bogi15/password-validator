@@ -6,17 +6,26 @@ public class validator {
     public static final String NUMBERS = "0123456789";
 
     public boolean passwordValid( boolean inUppercase, boolean inLowercase, boolean inNumbers, boolean inSpecial_Characters, String pass){
-        String all="";
-        if(inLowercase) all += LOWERCASE_CHARACTERS;
-        if(inUppercase) all += UPPERCASE_CHARACTERS; 
-        if(inSpecial_Characters) all += SPECIAL_CHARACTERS;
-        if(inNumbers) all += NUMBERS;
+        boolean Uppercase = false;
+        boolean Lowercase = false;
+        boolean Numbers = false;
+        boolean SpecialChars = false;
 
-        for (char c : pass.toCharArray()) {
-            if (all.indexOf(c) == -1) {
-                return false; 
-            }
+    for (char c : pass.toCharArray()) {
+        if (Character.isUpperCase(c)) {
+            Uppercase = true;
+        } else if (Character.isLowerCase(c)) {
+            Lowercase = true;
+        } else if (Character.isDigit(c)) {
+            Numbers = true;
+        } else if (SPECIAL_CHARACTERS.indexOf(c) != -1) {
+            SpecialChars = true;
         }
-        return true;
+    }
+
+    return inUppercase == Uppercase &&
+           inLowercase == Lowercase &&
+           inNumbers == Numbers &&
+           inSpecial_Characters == SpecialChars;
     }
 }

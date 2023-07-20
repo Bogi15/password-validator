@@ -3,7 +3,7 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-
+//7
 public class mainFrame  extends JFrame{
     private validator passwordValid;
     public mainFrame(){
@@ -55,7 +55,7 @@ public class mainFrame  extends JFrame{
         numbers.setBounds(275,402,225,56);
         numbers.setFont(new Font("Dialog",Font.PLAIN,26));
         add(numbers);
-        //validate button
+        //validate button 
         JButton validate = new JButton("Validate");
         validate.setBounds(150,200,225,56);
         validate.setFont(new Font("Dialog",Font.BOLD,26));
